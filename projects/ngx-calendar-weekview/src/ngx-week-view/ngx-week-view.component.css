@@ -1,0 +1,66 @@
+.days-header-1 {
+    display: grid;
+    grid-template-columns: 1fr repeat(7, 3fr);
+  }
+
+  .schedules-item {
+    min-height: 50px;
+    position: relative;
+    text-align: center;
+    /* padding: 0rem 0.2rem 0 0.2rem; */
+    border-right: 1px solid #b4b4b4;
+    border-bottom: 1px solid #b4b4b4;
+  }
+  
+  .schedules-item:nth-child(8n + 1) {
+    border-left: 1px solid #b4b4b4;
+  }
+  
+  .schedules-item:nth-child(-n + 8) {
+    border-top: 1px solid #b4b4b4;
+    min-height: unset;
+  }
+
+.appointments {
+    /* display: flex; */
+    z-index: 1;
+}
+.appointments > div {
+    /* flex: 1; */
+    border-radius: 0.3rem;
+    overflow: hidden;
+    /* border:1px solid */
+    box-sizing: border-box;
+}
+  
+.day-view,
+.time-view {
+    padding: 0.2rem 1rem;
+    font-family: monospace;
+    font-weight: 600;
+  }
+  
+.time-view {
+    padding: 0.2rem 0rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .time-ruler {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .time-ruler > div {
+    flex: 1;
+  }
+  .time-ruler > div:not(:last-child) {
+    border-bottom: 1px solid #e6e6e6;
+  }

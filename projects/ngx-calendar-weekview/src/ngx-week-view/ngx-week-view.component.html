@@ -1,0 +1,25 @@
+<div class="days-header-1">
+    <div class="schedules-item" *ngFor="let i of weekHour;let index=index">
+        <div class="time-view" *ngIf="index%8==0">
+            {{i.hour | date:'hh a'}}
+        </div>
+        <div class="day-view" *ngIf="index<8">
+            {{i.day | date:'EEE dd/MM'}}
+        </div>
+        <ng-container *ngIf="index >=8">
+            <div class="time-ruler">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="appointments">
+                <div [ngStyle]="{'height': getHeight(item),'margin':getMargin(item),'background-color':color[iIndex%8]}"
+                    *ngFor="let item of i.appointment | async;let iIndex=index" style="font-size:12px">
+                    <div>{{item.start | date:'shortTime'}} {{item.end | date:'shortTime'}}</div>
+                    {{item.title}}
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
